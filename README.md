@@ -2,6 +2,21 @@
 
 A CLI tool for migrating Shopify store data (metaobject definitions, metafield definitions) from one store to another using the Shopify GraphiQL app.
 
+## Prerequisites
+
+Install the [Shopify GraphiQL app](https://shopify-graphiql-app.shopifycloud.com/login) in both the source and target stores.
+
+When prompted for permissions, enable the following:
+
+**Admin API**
+
+- `metaobject_definitions` — read, write
+- `metaobjects` — read, write
+
+**Storefront API**
+
+- `metaobjects` — read
+
 ## How it works
 
 All queries and mutations are run manually inside the Shopify GraphiQL app — no API tokens or custom app setup required.
