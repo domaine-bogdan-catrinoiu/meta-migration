@@ -49,6 +49,26 @@ Open GraphiQL in the **target** store. For each definition you want to migrate:
 3. Run the mutation
 4. Check the `userErrors` field in the response — an empty array means success
 
+## Configuration
+
+Each migration type can be configured via a `config.json` file in its folder (e.g. `metaobjects/config.json`). If the file is absent, the script runs with defaults and all definitions are processed.
+
+### `excludePrefixes`
+
+A list of type-prefix strings. Any definition whose `type` starts with one of these values is skipped and not written to `output/`.
+
+```json
+{
+  "excludePrefixes": ["shopify--"]
+}
+```
+
+Useful for filtering out Shopify-managed definitions that cannot or should not be recreated in the target store. Add as many prefixes as needed — the script will log each skipped definition:
+
+```
+⊘ Skipped: shopify--formula-level (matches prefix "shopify--")
+```
+
 ## Migration types
 
 | Type                   | Script                 | Input file                     |

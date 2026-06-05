@@ -73,9 +73,22 @@ function buildVariables(def: MetaobjectDefinition): object {
 const inputPath = process.argv[2] ?? path.join(__dirname, "input/input.json");
 const outputDir = process.argv[3] ?? path.join(__dirname, "output");
 
+const configPath = path.join(__dirname, "config.json");
+const { excludePrefixes = [] }: { excludePrefixes: string[] } = fs.existsSync(configPath)
+  ? JSON.parse(fs.readFileSync(configPath, "utf-8"))
+  : {};
+
 const raw = fs.readFileSync(inputPath, "utf-8");
 const input: Input = JSON.parse(raw);
-const definitions = input.data.metaobjectDefinitions.nodes;
+
+const definitions = input.data.metaobjectDefinitions.nodes.filter((def) => {
+  const matchedPrefix = excludePrefixes.find((prefix) => def.type.startsWith(prefix));
+  if (matchedPrefix) {
+    console.log(`⊘ Skipped: ${def.type} (matches prefix "${matchedPrefix}")`);
+    return false;
+  }
+  return true;
+});
 
 fs.mkdirSync(outputDir, { recursive: true });
 

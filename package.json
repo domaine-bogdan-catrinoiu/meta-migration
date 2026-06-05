@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "metaobjects": "ts-node --esm metaobjects/process.ts",
-    "metafields": "ts-node --esm metafields/process.ts"
+    "metaobjects": "rm -r -d metaobjects/output/ && ts-node --esm metaobjects/process.ts",
+    "metafields": "rm -r -d metaobjects/output/ && ts-node --esm metafields/process.ts"
   },
   "devDependencies": {
     "ts-node": "^10.9.2",
