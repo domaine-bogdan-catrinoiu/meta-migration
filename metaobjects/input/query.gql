@@ -1,0 +1,18 @@
+query MyQuery {
+  metaobjectDefinitions(first: 50) {
+    nodes {
+      name
+      type
+      description
+      fieldDefinitions {
+        key
+        required
+        name
+        description
+        type {
+          name
+        }
+      }
+    }
+  }
+}

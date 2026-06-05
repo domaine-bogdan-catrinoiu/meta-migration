@@ -1,0 +1,13 @@
+{
+  "name": "meta-migration",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "metaobjects": "ts-node --esm metaobjects/process.ts",
+    "metafields": "ts-node --esm metafields/process.ts"
+  },
+  "devDependencies": {
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.5"
+  }
+}
