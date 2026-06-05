@@ -5,8 +5,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Commands
 
 ```bash
-npm run metaobjects   # generate mutation + variables files from metaobjects/input/input.json
-npm run metafields    # generate mutation + variables files from metafields/input/input.json (future)
+pnpm run metaobjects   # generate mutation + variables files from metaobjects/input/input.json
+pnpm run metafields    # generate mutation + variables files from metafields/input/input.json (future)
 ```
 
 ## Architecture
@@ -16,7 +16,7 @@ This is a migration tool for copying Shopify store data between stores. Each mig
 ### Workflow
 
 1. User runs a GraphQL query in the **source** store's Shopify GraphiQL app and saves the response as `{type}/input/input.json`
-2. User runs the corresponding `npm run {type}` script — it reads the input and generates output files
+2. User runs the corresponding `pnpm run {type}` script — it reads the input and generates output files
 3. User pastes `{type}/output/mutation.graphql` + each `{type}/output/{definition}/variables.json` into the **target** store's GraphiQL app
 
 ### metaobjects
